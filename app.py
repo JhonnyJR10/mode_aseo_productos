@@ -14,7 +14,7 @@ def predict():
     future2 = m2.make_future_dataframe(periods=horizon, freq='M')
     forecast2 = m2.predict(future2)
     
-    data = forecast2[['ds', 'yhat', 'yhat_lower', 'yhat_upper']][-horizon:]
+    data = forecast2[['producto', 'ds', 'yhat', 'yhat_lower', 'yhat_upper']][-horizon:]
     
     ret = data.to_json(orient='records', date_format='iso')
     
