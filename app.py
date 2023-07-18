@@ -20,7 +20,7 @@ def predict():
     return ret
 
 # Load the Prophet model from pickle file
-with open('predicciones.pckl', 'rb') as fin:
+with open('predicciones.pckl', 'rb') as file:
     predicciones_cargadas = pickle.load(file)
 
 # running REST interface, port=3000 for direct test
