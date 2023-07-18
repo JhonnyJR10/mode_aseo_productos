@@ -1,6 +1,6 @@
 import pickle
 import pandas as pd
-with open('forecast_aseo.pckl', 'rb') as fin:
+with open('predicciones.pckl', 'rb') as fin:
     m2 = pickle.load(fin)
 
 from flask import Flask, jsonify, request
