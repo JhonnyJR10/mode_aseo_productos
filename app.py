@@ -10,8 +10,8 @@ CORS(app)
 def predict():
     horizon = int(request.json['horizon'])
     
-    future2 = m2.make_future_dataframe(periods=horizon, freq='M')
-    forecast2 = m2.predict(future2)
+    future2 = predicciones_cargadas.make_future_dataframe(periods=horizon, freq='M')
+    forecast2 = predicciones_cargadas.predict(future2)
     
     data = forecast2[['producto', 'ds', 'yhat', 'yhat_lower', 'yhat_upper']][-horizon:]
     
@@ -21,7 +21,7 @@ def predict():
 
 # Load the Prophet model from pickle file
 with open('predicciones.pckl', 'rb') as fin:
-    m2 = pickle.load(fin)
+    predicciones_cargadas = pickle.load(file)
 
 # running REST interface, port=3000 for direct test
 if __name__ == "__main__":
